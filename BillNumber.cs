@@ -14,10 +14,6 @@ namespace Bill_Number_Parser
             get { return chamber; }
             set
             {
-                if (value != Chamber.H && value != Chamber.S)
-                {
-                    throw new ArgumentException("Invalid chamber. Must be 'H' or 'S'.");
-                }
                 chamber = value;
             }
         }
@@ -28,10 +24,6 @@ namespace Bill_Number_Parser
             get { return billType; }
             set
             {
-                if (value != BillType.B && value != BillType.R && value != BillType.CR && value != BillType.JR)
-                {
-                    throw new ArgumentException("Invalid bill type. Must be 'B', 'R', 'CR', or 'JR'.");
-                }
                 billType = value;
             }
         }
