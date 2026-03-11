@@ -86,7 +86,7 @@ namespace Bill_Number_Parser
 
             // Regex feels uninspired, but after removing whitespace and ensuring the same case,
             // it provides a clear and consistent way to both validate the format and extract the necessary components.
-            string pattern = @"^([HS]+)(CR|JR|B|R)+(\d{1,5})$";
+            string pattern = @"^([HS]{1})(CR|JR|B|R){1}(\d{1,5})$";
             MatchCollection matches = Regex.Matches(billNumber, pattern, RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
 
             // If the regex doesn't match exactly once, the format is invalid.
