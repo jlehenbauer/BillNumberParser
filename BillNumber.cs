@@ -110,44 +110,6 @@ namespace Bill_Number_Parser
             Number = int.Parse(matches[0].Groups[3].Value);
 
             isValid = true;
-
-            //if (billNumber[0] == 'H' || billNumber[0] == 'S')
-            //{
-            //    BillChamber = (billNumber[0] == 'H') ? Chamber.H : Chamber.S;
-            //}
-            //else
-            //{
-            //    isValid = false;
-            //    throw new ArgumentException("Invalid bill number format. Must start with 'H' or 'S'.");
-            //}
-
-            //if (billNumber.Length > 2 && Char.IsDigit(billNumber[2]))
-            //{
-            //    BillType = (billNumber[1] == 'B') ? BillType.B :
-            //               (billNumber[1] == 'R') ? BillType.R :
-            //               throw new ArgumentException("Invalid bill number format. Bill type must be 'B', 'R', 'CR', or 'JR'.");
-            //}
-            //else if (billNumber[1] == 'C' || billNumber[1] == 'J')
-            //{
-            //    BillType = (billNumber[1] == 'C' && billNumber[2] == 'R') ? BillType.CR :
-            //               (billNumber[1] == 'J' && billNumber[2] == 'R') ? BillType.JR :
-            //               throw new ArgumentException("Invalid bill number format. Bill type must be 'B', 'R', 'CR', or 'JR'.");
-            //}
-            //else
-            //{                 
-            //    isValid = false;
-            //    throw new ArgumentException("Invalid bill number format. Bill type must be 'B', 'R', 'CR', or 'JR'.");
-            //}
-
-            //// Add isValid change here
-            //if (int.TryParse(Regex.Match(billNumber, @"\d+").Value, out int number))
-            //{
-            //    Number = number;
-            //}
-            //else
-            //{
-            //    isValid = false;
-            //}
         }
 
         public string BillNumberLong()
