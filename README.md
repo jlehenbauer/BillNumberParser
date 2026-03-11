@@ -4,11 +4,11 @@ Contains the `BillNumber` class for the purposes of 1) validating and 2) usably 
 
 ## Project Details
 
-To build:
+To build and test:
 
 1. Clone this repository.
-2. Clone the [Test](https://github.com/jlehenbauer/BillNumberTests) repository.
-3. Open the solution file `BillNumberParser.sln` in Visual Studio.
+2. Clone the [Test](https://github.com/jlehenbauer/BillNumberTests) repository to the same folder as this repository (the two cloned folders should be in the same directory).
+3. Open the solution file `BillNumberParser/Bill Number Parser.slnx` in Visual Studio.
 4. Build the solution and run the tests from the Test Explorer.
 
 ## BillNumber Class
