@@ -2,6 +2,15 @@
 
 Contains the `BillNumber` class for the purposes of 1) validating and 2) usably defining Bill Numbers.
 
+## Project Details
+
+To build:
+
+1. Clone this repository.
+2. Clone the [Test](https://github.com/jlehenbauer/BillNumberTests) repository.
+3. Open the solution file `BillNumberParser.sln` in Visual Studio.
+4. Build the solution and run the tests from the tests project.
+
 ## BillNumber Class
 
 The `BillNumber` class defines the properties of a Bill Number:
