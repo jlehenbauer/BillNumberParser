@@ -40,7 +40,8 @@ namespace Bill_Number_Parser
         public int Number
         {
             get { return number; }
-            set             {
+            set
+            {
                 if (value <= 0)
                 {
                     throw new ArgumentException("Bill number must be a positive.");
@@ -83,8 +84,8 @@ namespace Bill_Number_Parser
         {
             // Remove whitespace and convert to uppercase for consistent parsing
             string billNumber = Regex.Replace(billNumberString, @"\s+", "").ToUpper();
-            
-            if(string.IsNullOrEmpty(billNumber))
+
+            if (string.IsNullOrEmpty(billNumber))
             {
                 isValid = false;
                 throw new ArgumentException("Bill number cannot be null or empty.");
@@ -95,7 +96,7 @@ namespace Bill_Number_Parser
             string pattern = @"([HS]+)(CR|JR|B|R)+(\d+)";
             MatchCollection matches = Regex.Matches(billNumber, pattern, RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
 
-            if(matches.Count != 1)
+            if (matches.Count != 1)
             {
                 isValid = false;
                 throw new ArgumentException("Invalid bill number format. Must state chamber (H or S) followed by the typ of resolution (B/R/CR/JR) and a number (e.g., 'HB04', 'SR123', 'HJR 01374').");
@@ -156,7 +157,7 @@ namespace Bill_Number_Parser
         {
             return string.Concat(BillChamber.ToString().Substring(0, 1), BillType.ToString(), Number.ToString("D5"));
         }
-        
+
         public string BillNumberShort()
         {
             return string.Concat(BillChamber.ToString().Substring(0, 1), BillType.ToString(), Number.ToString());
@@ -169,13 +170,13 @@ namespace Bill_Number_Parser
                                         .GetMember(BillChamber.ToString())
                                         .FirstOrDefault()?
                                         .GetCustomAttribute<DescriptionAttribute>()?.Description,
-                                 " ", 
+                                 " ",
                                  BillType
                                         .GetType()
                                         .GetMember(BillType.ToString())
                                         .FirstOrDefault()?
                                         .GetCustomAttribute<DescriptionAttribute>()?.Description,
-                                 " ", 
+                                 " ",
                                  Number);
         }
 
@@ -183,6 +184,19 @@ namespace Bill_Number_Parser
         public override string ToString()
         {
             return BillNumberShort();
+        }
+
+        public static bool ValidateBillNumber(string billNumber)
+        {
+            try
+            {
+                BillNumber bn = new BillNumber(billNumber);
+                return bn.IsValidBillNumber();
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 
