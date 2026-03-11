@@ -9,7 +9,7 @@ To build:
 1. Clone this repository.
 2. Clone the [Test](https://github.com/jlehenbauer/BillNumberTests) repository.
 3. Open the solution file `BillNumberParser.sln` in Visual Studio.
-4. Build the solution and run the tests from the tests project.
+4. Build the solution and run the tests from the Test Explorer.
 
 ## BillNumber Class
 
