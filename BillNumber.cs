@@ -85,6 +85,7 @@ namespace Bill_Number_Parser
             // Remove whitespace and convert to uppercase for consistent parsing
             string billNumber = Regex.Replace(billNumberString, @"\s+", "").ToUpper();
 
+            // If the input is null or empty after trimming whitespace, it's not a valid bill number.
             if (string.IsNullOrEmpty(billNumber))
             {
                 isValid = false;
@@ -93,24 +94,20 @@ namespace Bill_Number_Parser
 
             // Regex feels uninspired, but after removing whitespace and ensuring the same case,
             // it provides a clear and consistent way to both validate the format and extract the necessary components.
-            string pattern = @"([HS]+)(CR|JR|B|R)+(\d+)";
+            string pattern = @"^([HS]+)(CR|JR|B|R)+(\d{1,5})$";
             MatchCollection matches = Regex.Matches(billNumber, pattern, RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
 
+            // If the regex doesn't match exactly once, the format is invalid.
             if (matches.Count != 1)
             {
                 isValid = false;
                 throw new ArgumentException("Invalid bill number format. Must state chamber (H or S) followed by the typ of resolution (B/R/CR/JR) and a number (e.g., 'HB04', 'SR123', 'HJR 01374').");
             }
 
+            // If the pattern matches, we can safely parse the elements of the bill number
             BillChamber = (Chamber)Enum.Parse(typeof(Chamber), matches[0].Groups[1].Value);
             BillType = (BillType)Enum.Parse(typeof(BillType), matches[0].Groups[2].Value);
             Number = int.Parse(matches[0].Groups[3].Value);
-
-            if (Number > 99999 || Number < 1)
-            {
-                isValid = false;
-                throw new ArgumentException("Invalid bill number. Must be between 1 and 99999.");
-            }
 
             isValid = true;
 
