@@ -101,7 +101,7 @@ namespace Bill_Number_Parser
             if (matches.Count != 1)
             {
                 isValid = false;
-                throw new ArgumentException("Invalid bill number format. Must state chamber (H or S) followed by the typ of resolution (B/R/CR/JR) and a number (e.g., 'HB04', 'SR123', 'HJR 01374').");
+                throw new ArgumentException("Invalid bill number format. Must state chamber (H or S) followed by the typ of resolution (B/R/CR/JR) and a number of five or fewer digits (e.g., 'HB04', 'SR123', 'HJR 01374').");
             }
 
             // If the pattern matches, we can safely parse the elements of the bill number
@@ -145,6 +145,7 @@ namespace Bill_Number_Parser
             return BillNumberShort();
         }
 
+        // Allow validation without needing to create an instance of the class.
         public static bool ValidateBillNumber(string billNumber)
         {
             try
