@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../Bill Number Tests/Bill Number Tests.csproj" Id="22e9ec5a-6dca-4191-9056-375e1824bf97" />
+  <Project Path="Bill Number Parser.csproj" />
+</Solution>
