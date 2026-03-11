@@ -8,7 +8,7 @@ The `BillNumber` class defines the properties of a Bill Number:
 
 - `BillChamber`: An enum representing the chamber of the bill, either "H" for House or "S" for Senate.
 - `BillType`: An enum describing type of bill, such as "R" for Resolution, "B" for Bill, etc.
-- `BillNumber`: The numeric part of the bill number, which must be a positive integer, with one to five digits (inclusive).
+- `BillNumber`: An integer representing numeric part of the bill number, which must be a positive integer, with one to five digits (inclusive).
 - `IsValid`: A boolean property that indicates whether the bill number is valid. Set during construction.
 
 The constructor that takes a string as input performs the following validations:
