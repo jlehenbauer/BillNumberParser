@@ -31,3 +31,7 @@ If an instance is not needed, you can also use the static `ValidateBillNumber` m
 ```csharp
 bool isValid = BillNumber.ValidateBillNumber("SB5678"); // true
 ```
+
+## Tests
+
+Find the test project at [https://github.com/jlehenbauer/BillNumberTests](https://github.com/jlehenbauer/BillNumberTests). This project is included in the solution for BillNumberParser, but needs to be pulled separately.
